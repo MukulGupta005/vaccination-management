@@ -1,0 +1,38 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="header">
+  <div>vaccine Records</div>
+  <span class="nav-tool-items">
+    <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
+  </span>
+  <input style="padding: 0%;" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+  <button mdbBtn size="sm" gradient="aqua" rounded="true" class="my-0 waves-light" mdbWavesEffect type="submit">Search</button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
+    [fixedTopGap]>
+    <mat-nav-list>
+      <a mat-list-item routerLinkActive="active" routerLink="/add-vaccine">
+        <mat-icon>add</mat-icon> Add vaccine
+      </a>
+      <a mat-list-item routerLinkActive="active" routerLink="/vaccines-list">
+        <mat-icon>format_list_bulleted</mat-icon> View vaccines
+      </a>
+      <a mat-list-item routerLinkActive="active" routerLink="/login">
+        <mat-icon>navigate_next</mat-icon> Login
+      </a>
+      <a mat-list-item routerLinkActive="active" routerLink="/signup">
+        <mat-icon>navigate_next</mat-icon> Signup
+      </a>
+      <a mat-list-item routerLinkActive="active" routerLink="/barchart">
+        <mat-icon>navigate_next</mat-icon> barchart
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
